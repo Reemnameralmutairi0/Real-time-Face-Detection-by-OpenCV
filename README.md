@@ -3,11 +3,9 @@ This project is done using Pycharm IDE and Python, it is a Real-Time Face recogn
 # 1. Import and initialize
 Start by importing OpenCV and create a directory (ex: Cascades) to gather all Haar classifiers files that you want to use in you project, then use their path to load them into your project.
 ```
-{
 import cv2
  
 faceCascade = "cv2.CascadeClassifier('Cascades/haarcascades/HAARCASCADE_FRONTALFACE_DEFAULT.xml')
-}
 ```
 # 2. Setting up your camera
 To start we need to capture the face and to do so we are using the PC embedded camera which we are referring to it using (0) & setting the window size to specific measures in the following code lines:
