@@ -26,8 +26,23 @@ while True:
         minNeighbors=5, 
         minSize=(20, 20) 
     )
-    ```
+   ```
 # 4. Detecting Faces
 The function will detect faces on the image. Next, we must "mark" the faces in the image, using, for example, a blue rectangle. If faces are found, it returns the positions of detected faces as a rectangle with the left up corner (x,y) and having "w" as its Width and "h" as its Height ==> (x,y,w,h). This is done with this portion of the code:
+```
+for face in faces: 
+        top, right, bottom, left = face 
+        # draw a blue rectangle around the face 
+        cv2.rectangle(img, (top, right), (top + bottom, right + left), (255, 0, 0), 2) 
+        roi_gray = gray[right:right + left, top:top + bottom] 
+        roi_color = img[right:right + left, top:top + bottom]
+  ```      
 # 5. Final Touches
 If the user wants to quit the program, the button ESC is set to terminate the program in the following code lines, and to alert the user there is a small message shown on the top-right corner of the detected face boarders.
+```
+k = cv2.waitKey(30) & 0xff 
+    if k == 27:  # press 'ESC' to quit 
+        break 
+cap.release() 
+cv2.destroyAllWindows()
+```
